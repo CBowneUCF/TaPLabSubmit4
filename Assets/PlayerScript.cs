@@ -18,10 +18,10 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0);
+		//transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0);
+		transform.position = Camera.main.ScreenToWorldPoint(new(Input.mousePosition.x, Input.mousePosition.y, 10));
 
-
-        /*
+		/*
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if(XZPlane.Raycast(ray, out float distance))
         {
@@ -29,6 +29,6 @@ public class PlayerScript : MonoBehaviour
             transform.position = hitPoint;
         }
          */
-        
-    }
+
+	}
 }
